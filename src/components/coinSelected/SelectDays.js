@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import useDarkContext from "../../../context/DarkContext";
 import { light, dark } from "../../style/colors";
 
-export default function FotterGrafic({ setFotterData, fotterData }) {
+export default function SelectDays({ setFotterData, fotterData }) {
   const { switchValue } = useDarkContext();
   const lightDark = switchValue ? light : dark;
   return (
@@ -53,7 +53,7 @@ export default function FotterGrafic({ setFotterData, fotterData }) {
             fotterData === 7
               ? [
                   styles.backgroundSelect,
-                  { backgroundColor: lightDark.background },
+                  { backgroundColor: lightDark.navBackground },
                 ]
               : "",
           ],
@@ -133,14 +133,15 @@ export default function FotterGrafic({ setFotterData, fotterData }) {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    width: "100%",
     justifyContent: "center",
-    padding: 15,
+    paddingVertical: 7,
+    paddingHorizontal: 10,
+    borderRadius: 5,
   },
   subContainer: {
-    marginRight: 15,
+    marginHorizontal: 7,
     padding: 3,
-    paddingHorizontal: 8,
+    paddingHorizontal: 6,
   },
   backgroundSelect: {
     borderRadius: 4,

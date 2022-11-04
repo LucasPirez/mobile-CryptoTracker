@@ -2,7 +2,7 @@ import react, { useState, useEffect } from "react";
 import { View, StyleSheet } from "react-native";
 import Loading from "../utilities/Loading";
 import { grafic } from "../../../coingrecoFetch/client";
-import FotterGrafic from "./FotterGrafic";
+import FotterGrafic from "./SelectDays";
 import RenderGraficCoin from "./RenderGraficCoin";
 import CandlesGraph from "./CandlesGraph";
 import useDarkContext from "../../../context/DarkContext";

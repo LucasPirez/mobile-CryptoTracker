@@ -1,10 +1,11 @@
 import react from "react";
 
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { View, Text, StyleSheet, ScrollView, SafeAreaView } from "react-native";
 import Table from "./Table";
 import { light, dark } from "../../style/colors";
 import useDarkContext from "../../../context/DarkContext";
 import Search from "../search";
+import Config from "../config";
 
 export default function Home() {
   const { switchValue } = useDarkContext();
@@ -13,20 +14,33 @@ export default function Home() {
 
   return (
     <>
-      <Search style={styles.searchContainer} lightDark={lightDark} />
-      <ScrollView
+      <View
         style={[styles.container, { backgroundColor: lightDark.background }]}
       >
+        <View
+          style={[
+            styles.containerSearch,
+            { backgroundColor: lightDark.background },
+          ]}
+        >
+          <Search lightDark={lightDark} />
+          <Config />
+        </View>
         <Table />
-      </ScrollView>
+      </View>
     </>
   );
 }
 const styles = StyleSheet.create({
-  searchContainer: {
+  containerSearch: {
+    flexDirection: "row",
     position: "relative",
-    width: "100%",
+    overflow: "visible",
+    paddingTop: 30,
+    height: "auto",
+    zIndex: 9,
   },
+
   container: {
     padding: 10,
   },

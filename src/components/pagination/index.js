@@ -1,40 +1,44 @@
 import react, { useState } from "react";
 import { StyleSheet, TouchableOpacity, View, Text } from "react-native";
-import useAppContext from "../../../context/Context";
 import AwesomeIcon from "react-native-vector-icons/FontAwesome";
 import { shadow1 } from "../../style/shadows";
 import { light, dark } from "../../style/colors";
 import Config from "../config";
 
-export default function Pagination() {
-  const { number, setNumber } = useAppContext();
-
+export default function Pagination({ number, setNumber }) {
   const handlePress = (pag) => {
     if (pag === "sum") {
-      setNumber({ ...number, a: number.a + 1 });
+      setNumber(number + 1);
     } else {
-      setNumber({ ...number, a: number.a - 1 });
+      number > 1 && setNumber(number - 1);
     }
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.subContainer}>
-        {number.a > 1 && (
-          <TouchableOpacity onPress={() => handlePress("res")}>
-            <View style={styles.button}>
-              <Text style={styles.text}>PREV</Text>
-            </View>
-          </TouchableOpacity>
-        )}
-        {number.a > 3 && (
+        <TouchableOpacity onPress={() => handlePress("res")}>
+          <View style={[styles.button, number <= 1 ? { opacity: 0.5 } : ""]}>
+            <Text style={styles.text}>PREV</Text>
+          </View>
+        </TouchableOpacity>
+
+        {number > 3 && (
           <TouchableOpacity onPress={() => setNumber(1)} style={styles.button}>
             <Text style={styles.text}>1</Text>
           </TouchableOpacity>
         )}
         <TouchableOpacity style={[styles.button, { backgroundColor: "#09a" }]}>
-          <Text style={styles.text}>{number.a}</Text>
+          <Text style={styles.text}>{number}</Text>
         </TouchableOpacity>
+        {number <= 3 && (
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => handlePress("sum")}
+          >
+            <Text style={styles.text}>{number + 1}</Text>
+          </TouchableOpacity>
+        )}
         <TouchableOpacity style={styles.button}>
           <Text style={styles.text}>99</Text>
         </TouchableOpacity>
@@ -45,7 +49,6 @@ export default function Pagination() {
           <Text style={styles.text}>NEXT</Text>
         </TouchableOpacity>
       </View>
-      <Config />
     </View>
   );
 }

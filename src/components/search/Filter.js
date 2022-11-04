@@ -109,14 +109,13 @@ const styles = StyleSheet.create({
     height: 600,
     backgroundColor: "transparent",
     position: "absolute",
-    zIndex: 99,
   },
   container: {
     width: "100%",
     height: 250,
     position: "absolute",
-    zIndex: 99,
-    top: 60,
+    left: 20,
+    top: 40,
   },
   subContainer: {
     flexDirection: "row",

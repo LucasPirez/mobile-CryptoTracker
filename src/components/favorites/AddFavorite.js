@@ -34,36 +34,50 @@ export default function AddFavorite({ id }) {
   return (
     <>
       {favorite ? (
-        <TouchableOpacity style={styles.icon} onPress={handleDelete}>
+        <View style={styles.icon}>
           <AwesomeIcon
             name="star"
             size={15}
             style={[{ color: "#c9b536", alignSelf: "flex-end" }]}
           />
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.touchable}
+            onPress={handleDelete}
+          ></TouchableOpacity>
+        </View>
       ) : (
-        <TouchableOpacity style={styles.icon} onPress={handleFavorite}>
+        <View style={styles.icon}>
           <AwesomeIcon
             name="star-o"
             size={15}
             style={[{ color: lightDark.letters, alignSelf: "flex-end" }]}
           />
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.touchable}
+            onPress={handleFavorite}
+          ></TouchableOpacity>
+        </View>
       )}
     </>
   );
 }
 
 const styles = StyleSheet.create({
+  touchable: {
+    position: "absolute",
+    top: -5,
+    right: -10,
+    width: 60,
+    height: 30,
+    backgroundColor: "transparent",
+  },
   icon: {
-    // position: "absolute",
-    right: 0,
-    top: 0,
-    width: 50,
+    width: 36,
     height: 30,
     padding: 6,
     backgroundColor: "transparent",
     justifyContent: "center",
     alignItems: "stretch",
+    overflow: "visible",
   },
 });

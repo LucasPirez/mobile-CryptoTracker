@@ -59,11 +59,11 @@ export default function Search({ lightDark }) {
 }
 const styles = StyleSheet.create({
   container: {
-    position: "relative",
+    flex: 4,
   },
   inputContainer: {
     textAlign: "center",
-    marginTop: 25,
+
     height: 40,
   },
 });

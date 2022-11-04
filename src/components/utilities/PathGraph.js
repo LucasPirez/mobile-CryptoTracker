@@ -1,7 +1,6 @@
 import react, { useState, useEffect } from "react";
 import { Path } from "react-native-svg";
 import { scaleLinear } from "d3-scale";
-import { parse } from "react-native-redash";
 import * as shape from "d3-shape";
 
 export default function PathGraph({
@@ -10,7 +9,6 @@ export default function PathGraph({
   height,
   margin,
   color = "orange",
-  bitcoinUse,
 }) {
   const maximosMinimos = {
     max0: Math.max(...datos.map((u) => u[0])),

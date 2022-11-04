@@ -75,6 +75,7 @@ const styles = StyleSheet.create({
     width: "100%",
     marginTop: 10,
     paddingHorizontal: 15,
+    height: 700,
   },
   containerHeader: {
     flexDirection: "row",

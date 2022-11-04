@@ -9,13 +9,11 @@ import {
 } from "react-native";
 
 import { Picker } from "@react-native-picker/picker";
-import useAppContext from "../../../context/Context";
 import useDarkContext from "../../../context/DarkContext";
 import useCoinContext from "../../../context/CoinSelectedContext";
 
 export default function AnimatedConfig() {
   const [fadeIn, setFadeIn] = useState(new Animated.Value(170));
-  const { number, setNumber } = useAppContext();
   const { cambio, cambioSelect, setCambioSelect } = useCoinContext();
   const { switchValue, setSwitchValue } = useDarkContext();
 
@@ -29,7 +27,6 @@ export default function AnimatedConfig() {
 
   const handleSelect = (itemValue) => {
     setCambioSelect(itemValue);
-    setNumber({ ...number, b: itemValue });
   };
 
   return (
@@ -88,6 +85,7 @@ const styles = StyleSheet.create({
   },
   switch: {
     color: "red",
+    zIndex: 9,
     // width: 160,
     // height: 80,
     // backgroundColor: "rgba(250,0,0,0.5)",

@@ -21,7 +21,7 @@ export default function AppNavigation() {
   return (
     <NavigationContainer>
       <Tab.Navigator
-        barStyle={{ backgroundColor: lightDark.navBackground }}
+        barStyle={{ backgroundColor: lightDark.navBackground, height: 50 }}
         screenOptions={({ route }) => ({
           tabBarIcon: (routeStatus) => {
             return setIcon(route, routeStatus);
@@ -70,7 +70,7 @@ function setIcon(route, routeStatus) {
 
 const styles = StyleSheet.create({
   icon: {
-    fontSize: 20,
+    fontSize: 18,
     color: "#eed",
   },
 });

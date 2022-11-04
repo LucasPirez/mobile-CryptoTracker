@@ -3,7 +3,7 @@ import { View } from "react-native";
 import { useSharedValue } from "react-native-reanimated";
 import useGraficConstans from "../../../hooks/useGraficConstans";
 import ConditionalGrafic from "../ConditionalGrafic";
-import FotterGrafic from "../FotterGrafic";
+import FotterGrafic from "../SelectDays";
 import HeaderGrafic from "../HeaderGrafic";
 import MinMax from "../MinMax";
 import Grafic from "./Grafic";

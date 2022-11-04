@@ -12,7 +12,7 @@ export const lista = () => {
 export const pagination = (id, usd) => {
   console.log("pagination");
   return fetch(
-    `${BASE_URL}coins/markets?vs_currency=${usd}&order=market_cap_desc&per_page=100&page=${id}&sparkline=false`
+    `${BASE_URL}coins/markets?vs_currency=${usd}&order=market_cap_desc&per_page=100&page=${id}&sparkline=true`
   ).then((data) => data.json());
 };
 

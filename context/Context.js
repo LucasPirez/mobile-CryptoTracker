@@ -1,5 +1,5 @@
 import { useContext, createContext, useEffect, useState } from "react";
-import { pagination } from "../coingrecoFetch/client";
+// import { pagination } from "../coingrecoFetch/client";
 
 export const AppContext = createContext(null);
 
@@ -8,21 +8,20 @@ export const AppContextProvider = ({ children }) => {
   const [coinTable, setCoinTable] = useState(null);
   const [number, setNumber] = useState({ a: 1, b: "usd" });
   // const [switchValue, setSwitchValue] = useState(false);
-  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    setLoading(true);
-    pagination(number.a, number.b).then((data) => {
-      setCoinTable(data);
-      setLoading(false);
-    });
-  }, [number]);
+  // useEffect(() => {
+  //   setLoading(true);
+  //   pagination(number.a, number.b).then((data) => {
+  //     setCoinTable(data);
+  //     setLoading(false);
+  //   });
+  // }, [number]);
 
   const data = {
     coinTable,
     setNumber,
     number,
-    loading,
+    setCoinTable,
   };
 
   return <AppContext.Provider value={data}>{children}</AppContext.Provider>;
